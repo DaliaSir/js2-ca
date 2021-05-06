@@ -1,6 +1,6 @@
 import { articlesContainer } from "../components/elements.js";
 import { iconClickEvent } from "./iconClickEvent.js";
-import { getFromStorage } from "./storage.js";
+import { getFromStorage } from "./localStorage.js";
 
 export function renderArticles(articles) {
     articlesContainer.innerHTML = "";

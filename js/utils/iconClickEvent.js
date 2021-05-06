@@ -1,4 +1,4 @@
-import { getFromStorage, saveToStorage } from "./storage.js";
+import { getFromStorage, saveToStorage } from "./localStorage.js";
 
 export function iconClickEvent() {
     const favIcons = document.querySelectorAll(".article i");

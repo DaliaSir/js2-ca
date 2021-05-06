@@ -1,5 +1,5 @@
 import { articlesContainer, clearAllButton } from "./components/elements.js";
-import { getFromStorage } from "./utils/storage.js";
+import { getFromStorage } from "./utils/localStorage.js";
 import { displayMessage } from "./utils/displayMessage.js";
 import { noFavs } from "./components/messages.js";
 import { clearList } from "./utils/clearFavourites.js";
