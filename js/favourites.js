@@ -1,18 +1,16 @@
-import { articlesContainer } from "./components/targetElements.js";
-import { getFavArticles } from "./utils/storage.js";
+import { articlesContainer, clearAllButton } from "./components/elements.js";
+import { getFromStorage } from "./utils/storage.js";
 import { displayMessage } from "./utils/displayMessage.js";
 import { noFavs } from "./components/messages.js";
-import { clearList } from "./utils/clearAll.js";
+import { clearList } from "./utils/clearFavourites.js";
 
-function renderFavs() {
-    const clearAllButton = document.querySelector(".clearButton");
+
+(function renderFavs() {
     articlesContainer.innerHTML = "";
 
-    clearAllButton.addEventListener("click", () => {
-        clearList(renderFavs);
-    });
+    clearAllButton.addEventListener("click", () => clearList(renderFavs));
 
-    const favArticles = getFavArticles();
+    const favArticles = getFromStorage();
 
     if (favArticles.length === 0) {
         displayMessage("", noFavs, ".articles-container");
@@ -33,6 +31,4 @@ function renderFavs() {
                 `;
         });
     }
-}
-
-renderFavs();
+})();

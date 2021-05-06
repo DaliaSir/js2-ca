@@ -8,16 +8,13 @@ const url = baseUrl + "articles/";
 (async function () {
     try {
         const response = await fetch(url);
-        const data = await response.json();
+        const articles = await response.json();
 
-
-        renderArticles(data);
-        filterArticles(data);
+        renderArticles(articles);
+        filterArticles(articles);
 
     } catch (error) {
         console.log(error);
         displayMessage("error", error, ".articles-container");
     }
 })();
-
-

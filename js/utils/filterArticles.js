@@ -1,14 +1,13 @@
-import { search } from "../components/targetElements.js";
+import { search } from "../components/elements.js";
 import { renderArticles } from "./renderArticles.js";
 import { displayMessage } from "./displayMessage.js";
 import { noResults } from "../components/messages.js";
 
-export function filterArticles(data) {
+export function filterArticles(articles) {
     search.onkeyup = (event) => {
-
         const searchValue = event.target.value.replace(/\s/g, "").toLowerCase();
 
-        const filteredValues = data.filter((article) => {
+        const filteredValues = articles.filter((article) => {
             if (article.author.replace(/\s/g, "").toLowerCase().startsWith(searchValue)) {
                 return true;
             }
@@ -21,6 +20,6 @@ export function filterArticles(data) {
         }
     }
 
-    renderArticles(data);
+    renderArticles(articles);
 }
 

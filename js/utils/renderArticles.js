@@ -1,28 +1,22 @@
-import { articlesContainer } from "../components/targetElements.js";
-import iconClickEvent from "./iconClickEvent.js";
-import { getFavArticles } from "./storage.js";
+import { articlesContainer } from "../components/elements.js";
+import { iconClickEvent } from "./iconClickEvent.js";
+import { getFromStorage } from "./storage.js";
 
-export function renderArticles(data) {
+export function renderArticles(articles) {
     articlesContainer.innerHTML = "";
 
-    const favArticles = getFavArticles();
+    const favArticles = getFromStorage();
 
-
-    data.forEach((article) => {
-
-        let cssClass = "far";
-
+    articles.forEach((article) => {
         const isFavourite = favArticles.find((fav) => {
             return parseInt(fav.id) === article.id;
         });
 
-        if (isFavourite) {
-            cssClass = "fa";
-        }
+        const iconClass = isFavourite ? "fa" : "far";
 
-        let articleTitle = article.title || "Unknown title";
-        let articleSummary = article.summary || "No summary";
-        let articleAuthor = article.author || "Unknown author";
+        const articleTitle = article.title ? article.title : "Unknown title";
+        const articleSummary = article.summary ? article.summary : "No summary";
+        const articleAuthor = article.author ? article.author : "Unknown author";
 
         articlesContainer.innerHTML += `
             <div class="col p-4">
@@ -31,7 +25,7 @@ export function renderArticles(data) {
                         <h5 class="card-title">${articleTitle}</h5>
                         <p class="card-text">${articleSummary}</p>
                         <p class="card-footer bg-transparent fst-italic m-0">${articleAuthor}</p>
-                        <i class="${cssClass} fa-heart" data-id="${article.id}" data-title="${articleTitle}" data-summary="${articleSummary}" data-author="${articleAuthor}"></i>
+                        <i class="${iconClass} fa-heart" data-id="${article.id}" data-title="${articleTitle}" data-summary="${articleSummary}" data-author="${articleAuthor}"></i>
                     </div>
                 </div>
             </div>

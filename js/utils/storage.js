@@ -1,5 +1,5 @@
-export function getFavArticles() {
-    const favourites = localStorage.getItem("favList");
+export function getFromStorage() {
+    const favourites = localStorage.getItem("favourite-articles");
 
     if (!favourites) {
         return [];
@@ -8,6 +8,6 @@ export function getFavArticles() {
     }
 }
 
-export function saveFavArticles(favourites) {
-    localStorage.setItem("favList", JSON.stringify(favourites));
+export function saveToStorage(favourites) {
+    localStorage.setItem("favourite-articles", JSON.stringify(favourites));
 }

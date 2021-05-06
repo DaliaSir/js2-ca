@@ -1,6 +1,6 @@
-import { getFavArticles, saveFavArticles } from "./storage.js";
+import { getFromStorage, saveToStorage } from "./storage.js";
 
-export default function iconClickEvent() {
+export function iconClickEvent() {
     const favIcons = document.querySelectorAll(".article i");
 
     favIcons.forEach((icon) => {
@@ -16,7 +16,7 @@ export default function iconClickEvent() {
         const summary = this.dataset.summary;
         const author = this.dataset.author;
 
-        const currentFavs = getFavArticles();
+        const currentFavs = getFromStorage();
 
         const articleIsFav = currentFavs.find((fav) => {
             return fav.id === id;
@@ -25,12 +25,12 @@ export default function iconClickEvent() {
         if (!articleIsFav) {
             const article = { id: id, title: title, summary: summary, author: author };
             currentFavs.push(article);
-            saveFavArticles(currentFavs);
+            saveToStorage(currentFavs);
         } else {
             const newFavs = currentFavs.filter((fav) => {
                 return fav.id !== id;
             });
-            saveFavArticles(newFavs);
+            saveToStorage(newFavs);
         }
     }
 }
