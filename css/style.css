@@ -1,0 +1,37 @@
+/*----MESSAGE-----*/
+
+.message {
+  border: 2px solid #b19576;
+  background-color: #ffffff;
+  font-weight: 600;
+  margin-top: 20px;
+  padding: 10px 0;
+  width: 95%;
+  text-align: center;
+}
+
+.message.error {
+  border-color: darkred;
+  color: red;
+}
+
+/*----LOADER-----*/
+
+.loader {
+  border: 16px solid #ffffff;
+  border-top: 16px solid #02706b;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  margin-left: 50%;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
