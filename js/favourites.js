@@ -18,7 +18,7 @@ import { clearList } from "./utils/clearFavourites.js";
     } else {
         favArticles.forEach((article) => {
             articlesContainer.innerHTML += `
-                <div class="col p-4">
+                <div class="col p-3">
                     <div class="card">
                         <div class="card-body article">
                             <h5 class="card-title">${article.title}</h5>

@@ -19,7 +19,7 @@ export function renderArticles(articles) {
         const articleAuthor = article.author ? article.author : "Unknown author";
 
         articlesContainer.innerHTML += `
-            <div class="col p-4">
+            <div class="col p-3">
                 <div class="card">
                     <div class="card-body article">
                         <h5 class="card-title">${articleTitle}</h5>
