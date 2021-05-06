@@ -1,11 +1,12 @@
+import { articlesContainer } from "../components/targetElements.js";
 import iconClickEvent from "./iconClickEvent.js";
 import { getFavArticles } from "./storage.js";
 
 export function renderArticles(data) {
-    const articlesContainer = document.querySelector(".articles-container");
     articlesContainer.innerHTML = "";
 
     const favArticles = getFavArticles();
+
 
     data.forEach((article) => {
 
@@ -19,19 +20,9 @@ export function renderArticles(data) {
             cssClass = "fa";
         }
 
-        let articleTitle = "Unknown title";
-        let articleSummary = "No summary";
-        let articleAuthor = "Unknown author";
-
-        if (article.title) {
-            articleTitle = article.title;
-        }
-        if (article.summary) {
-            articleSummary = article.summary;
-        }
-        if (article.author) {
-            articleAuthor = article.author;
-        }
+        let articleTitle = article.title || "Unknown title";
+        let articleSummary = article.summary || "No summary";
+        let articleAuthor = article.author || "Unknown author";
 
         articlesContainer.innerHTML += `
             <div class="col p-4">

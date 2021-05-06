@@ -1,24 +1,24 @@
+import { search } from "../components/targetElements.js";
 import { renderArticles } from "./renderArticles.js";
+import { displayMessage } from "./displayMessage.js";
+import { noResults } from "../components/messages.js";
 
 export function filterArticles(data) {
-    const search = document.querySelector("#search");
-
     search.onkeyup = (event) => {
 
-        const searchValue = event.target.value.trim().toLowerCase();
-        console.log(searchValue);
-
-        if (searchValue.length === 0) {
-            location.reload();
-        }
+        const searchValue = event.target.value.replace(/\s/g, "").toLowerCase();
 
         const filteredValues = data.filter((article) => {
-            if (article.title.toLowerCase().startsWith(searchValue)) {
+            if (article.author.replace(/\s/g, "").toLowerCase().startsWith(searchValue)) {
                 return true;
             }
         });
-        data = filteredValues;
+
         renderArticles(filteredValues);
+
+        if (filteredValues.length === 0) {
+            displayMessage("", noResults, ".articles-container");
+        }
     }
 
     renderArticles(data);

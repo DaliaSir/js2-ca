@@ -4,7 +4,6 @@ import { renderArticles } from "./utils/renderArticles.js";
 import { filterArticles } from "./utils/filterArticles.js";
 
 const url = baseUrl + "articles/";
-const articlesContainer = document.querySelector(".articles-container");
 
 (async function () {
     try {
@@ -17,7 +16,7 @@ const articlesContainer = document.querySelector(".articles-container");
 
     } catch (error) {
         console.log(error);
-        displayMessage("error", error, articlesContainer);
+        displayMessage("error", error, ".articles-container");
     }
 })();
 

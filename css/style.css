@@ -6,8 +6,12 @@
   font-weight: 600;
   margin-top: 20px;
   padding: 10px 0;
-  width: 95%;
+  width: 100%;
   text-align: center;
+}
+
+.message p {
+  margin: 0;
 }
 
 .message.error {
