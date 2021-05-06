@@ -1,18 +1,20 @@
 import { articlesContainer } from "./components/targetElements.js";
 import { getFavArticles } from "./utils/storage.js";
-import { displayMessage } from "./utils/displayMessage.js";
-import { noFavs } from "./components/messages.js";
+// import { displayMessage } from "./utils/displayMessage.js";
+// import { noFavs } from "./components/messages.js";
 import { clearButton } from "./utils/clearAll.js";
 
 const clearAllButton = document.querySelector(".clearButton");
 const favArticles = getFavArticles();
 clearButton(favArticles);
-renderFavs();
+
 export function renderFavs() {
-    if (favArticles.length === 0) {
-        displayMessage("", noFavs, ".articles-container");
-        clearAllButton.style.display = 'none';
-    }
+    articlesContainer.innerHTML = "";
+
+    // if (favArticles.length === 0) {
+    //     displayMessage("", noFavs, ".articles-container");
+    //     clearAllButton.style.display = 'none';
+    // }
 
     favArticles.forEach((article) => {
         articlesContainer.innerHTML += `
@@ -31,3 +33,4 @@ export function renderFavs() {
 
 }
 
+renderFavs();
